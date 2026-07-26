@@ -1,0 +1,187 @@
+.app {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.app h1 {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--accent, #6c5ce7);
+  margin: 0 0 1.25rem;
+}
+
+.add-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface, #fff);
+  border: 1px solid var(--border, #e2e2e2);
+  border-radius: 10px;
+  padding: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.toggle-all {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border, #ccc);
+  background: transparent;
+  color: var(--border, #ccc);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.toggle-all.checked {
+  color: #fff;
+  background: var(--accent, #6c5ce7);
+  border-color: var(--accent, #6c5ce7);
+}
+
+.toggle-all:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.add-form input[type="text"] {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.4rem 0.25rem;
+  background: transparent;
+  color: inherit;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border, #e2e2e2);
+}
+
+.todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.9rem;
+  background: var(--surface, #fff);
+  border-bottom: 1px solid var(--border, #eee);
+}
+
+.todo-list li:last-child {
+  border-bottom: none;
+}
+
+.todo-list li.empty-state {
+  justify-content: center;
+  color: var(--muted, #999);
+  font-size: 0.9rem;
+  padding: 1.5rem;
+}
+
+.todo-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.todo-item input[type="checkbox"] {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--accent, #6c5ce7);
+  cursor: pointer;
+}
+
+.todo-item span {
+  overflow-wrap: anywhere;
+}
+
+.completed .todo-item span {
+  text-decoration: line-through;
+  color: var(--muted, #999);
+}
+
+.edit-input {
+  flex: 1;
+  font-size: 1rem;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid var(--accent, #6c5ce7);
+  border-radius: 4px;
+  outline: none;
+  background: transparent;
+  color: inherit;
+}
+
+.delete-button {
+  flex: none;
+  border: none;
+  background: transparent;
+  color: var(--muted, #bbb);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.1rem 0.35rem;
+}
+
+.delete-button:hover {
+  color: #e74c3c;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--muted, #888);
+  flex-wrap: wrap;
+}
+
+.filters {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.filters button {
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.filters button.active {
+  border-color: var(--accent, #6c5ce7);
+  color: var(--accent, #6c5ce7);
+}
+
+.clear-completed {
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+
+.clear-completed:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  text-decoration: none;
+}
