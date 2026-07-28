@@ -19,6 +19,8 @@ npm run dev
 | `npm run build` | 本番用ビルドを `dist/` に出力（型チェックも実行） |
 | `npm run preview` | ビルド済みファイルをローカルで確認 |
 | `npm run lint` | oxlint による静的解析 |
+| `npm test` | Vitest でテストを一括実行 |
+| `npm run test:watch` | Vitest をウォッチモードで実行 |
 
 ## 機能
 
@@ -36,14 +38,30 @@ npm run dev
 
 タスクはブラウザの `localStorage`（キー: `todos`）に保存されます。サーバーやデータベースは使用していないため、別のブラウザ・端末とはデータは共有されません。ブラウザのデータを消去するとタスクも失われます。
 
+## テスト
+
+Vitest + Testing Library でユニット/コンポーネントテストを実行しています。
+
+```bash
+npm test
+```
+
+- `src/useLocalStorage.test.ts` — localStorageとの同期ロジック（初期値、読み込み、書き込み、壊れたJSONのフォールバック、キーの独立性）
+- `src/App.test.tsx` — 追加・完了切り替え・削除・編集・フィルタ・完了済み一括削除・全選択・再読み込み後の永続化
+
+GitHub Pagesへのデプロイワークフロー（`.github/workflows/deploy.yml`）でも、ビルド前に `npm test` を実行し、失敗時はデプロイされません。
+
 ## ディレクトリ構成
 
 ```
 src/
-  App.tsx           # 画面全体のロジックとレイアウト
-  App.css           # TODOアプリ用のスタイル
-  index.css         # 全体の基本スタイル（配色・ダークモード）
-  main.tsx          # エントリーポイント
-  types.ts          # 型定義（Todo, Filter）
-  useLocalStorage.ts # localStorage と同期するカスタムフック
+  App.tsx                # 画面全体のロジックとレイアウト
+  App.test.tsx           # Appコンポーネントのテスト
+  App.css                # TODOアプリ用のスタイル
+  index.css              # 全体の基本スタイル（配色・ダークモード）
+  main.tsx                # エントリーポイント
+  types.ts                # 型定義（Todo, Filter）
+  useLocalStorage.ts      # localStorage と同期するカスタムフック
+  useLocalStorage.test.ts # useLocalStorage のテスト
+  test/setup.ts           # テスト共通セットアップ
 ```
